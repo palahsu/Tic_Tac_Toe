@@ -5,3 +5,4 @@ An unbeatable game of Tic Tac Toe. This tic-tac-toe game was developed using And
 # Features
 - Two Player
 - Restart
+- Auto Start
