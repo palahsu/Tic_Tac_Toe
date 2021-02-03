@@ -4,7 +4,7 @@ An unbeatable game of Tic Tac Toe. This tic-tac-toe game was developed using And
 
 ## Features
 - Two Player
-- Restart
+- Restart Button
 - Auto Start
 
 More feature coming soon! This is in Development Process.
