@@ -9,7 +9,6 @@ An unbeatable game of Tic Tac Toe. This tic-tac-toe game was developed using And
 
 More feature coming soon! This is in Development Process.
 
-
 For any kind of help, support, payment, suggestion and request ask me on Gmail / Telegram:
 
 <a href="https://t.me/CyberClans"><img src="https://img.shields.io/badge/Telegram-Group%20Telegram%20Join-blue.svg?logo=telegram"></a>
