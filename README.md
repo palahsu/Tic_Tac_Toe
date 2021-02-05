@@ -7,7 +7,7 @@ An unbeatable game of Tic Tac Toe. This tic-tac-toe game was developed using And
 - Restart Button
 - Auto Start
 
-More feature coming soon! This is in Development Process.
+More feature coming soon! This Game is Development Process...
 
 For any kind of help, support, payment, suggestion and request ask me on Gmail / Telegram:
 
