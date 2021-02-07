@@ -1,4 +1,4 @@
-package com.example.ttt;
+package com.palahsu.ttt;
 
 import androidx.appcompat.app.AppCompatActivity;
 
