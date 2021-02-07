@@ -1,4 +1,4 @@
-package com.example.ttt;
+package com.palahsu.ttt;
 
 import org.junit.Test;
 
