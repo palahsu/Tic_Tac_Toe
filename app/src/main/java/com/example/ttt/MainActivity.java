@@ -1,7 +1,6 @@
 package com.palahsu.ttt;
 
 import androidx.appcompat.app.AppCompatActivity;
-
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -15,6 +14,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private int player2Points;
     private TextView textViewPlayer1;
     private TextView textViewPlayer2;
+    
+    
+    
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -37,6 +39,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             }
         });
     }
+    
+    
     @Override
     public void onClick(View v) {
         if (!((Button) v).getText().toString().equals("")) {
@@ -92,6 +96,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             return true;
         }
         return false;
+        
+        
     }
     private void player1Wins() {
     }
