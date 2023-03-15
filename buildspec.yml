@@ -6,8 +6,8 @@ phases:
       java: corretto8
   build:
     commands:
-      - chmod +x ./gradlew
       - ./gradlew assembleDebug
+      - ls -R
 artifacts:
   files:
     - app/build/outputs/apk/app-debug.apk
