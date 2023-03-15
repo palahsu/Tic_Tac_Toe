@@ -4,12 +4,11 @@ phases:
     runtime-versions:
       android: 29
       java: corretto8
-    commands:
   build:
     commands:
       - ./gradlew assembleDebug
       - ls -R
-      - apk_name=app-debug-$(date +'%m-%d-%Y-%H-%M').apk
-      - printenv
-      - aws s3 cp app/build/outputs/apk/debug/app-debug.apk s3://$S3_BUCKET/app/$apk_name
-      
+artifacts:
+  files:
+    - app/build/outputs/apk/debug/app-debug.apk
+  name: application-v$CODEBUILD_BUILD_NUMBER-$(date +%Y-%m-%d).apk
