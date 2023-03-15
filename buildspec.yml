@@ -9,4 +9,4 @@ phases:
       - ./gradlew assembleDebug
       - ls -R
       - apk_name=app-debug-$(date +'%m-%d-%Y-%H-%M').apk
-      - aws s3 cp app/build/outputs/apk/debug/app-debug.apk s3://codepipeline-eu-west-3-841933358109/app/$apk_name
+      - aws s3 cp app/build/outputs/apk/debug/app-debug.apk s3://$S3_BUCKET/app/$apk_name
