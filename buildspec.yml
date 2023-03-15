@@ -5,10 +5,11 @@ phases:
       android: 29
       java: corretto8
     commands:
-      - printenv
   build:
     commands:
       - ./gradlew assembleDebug
       - ls -R
       - apk_name=app-debug-$(date +'%m-%d-%Y-%H-%M').apk
+      - printenv
       - aws s3 cp app/build/outputs/apk/debug/app-debug.apk s3://$S3_BUCKET/app/$apk_name
+      
