@@ -1,7 +1,13 @@
-
 version: 0.1
+
 phases:
+  install:
+    runtime-versions:
+      android: 29
+      java: corretto8
   build:
     commands:
-      - echo Starting build `date`
-    
+      - ./gradlew assembleDebug
+artifacts:
+  files:
+    - app/build/outputs/apk/app-debug.apk
