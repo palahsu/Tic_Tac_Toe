@@ -1,5 +1,4 @@
 version: 0.2
-
 phases:
   install:
     runtime-versions:
@@ -7,6 +6,7 @@ phases:
       java: corretto8
   build:
     commands:
+      - chmod +x ./gradlew
       - ./gradlew assembleDebug
 artifacts:
   files:
