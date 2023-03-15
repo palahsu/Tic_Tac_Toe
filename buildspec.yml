@@ -4,6 +4,8 @@ phases:
     runtime-versions:
       android: 29
       java: corretto8
+    commands:
+      - printenv
   build:
     commands:
       - ./gradlew assembleDebug
