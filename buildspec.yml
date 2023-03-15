@@ -11,5 +11,5 @@ phases:
 artifacts:
   files:
     - app/build/outputs/apk/debug/app-debug.apk
-  name: application-v$CODEBUILD_BUILD_NUMBER-$(date +%Y-%m-%d).apk
+  name: application.apk
   discard-paths: yes
