@@ -13,7 +13,7 @@ phases:
       - export MYAPP_RELEASE_KEY_PASSWORD=$KEY_PASSWORD
       - ./gradlew assembleRelease
 
-      - ls -R
+      - ls -li
 artifacts:  
   files:
     - app/build/outputs/apk/release/*.apk
