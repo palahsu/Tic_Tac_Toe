@@ -6,11 +6,11 @@ phases:
       java: corretto8
   build:
     commands:
-      - ./gradlew assembleDebug
+      - ./gradlew assembleRelease
       - ls -R
 artifacts:
   files:
-    - app/build/outputs/apk/debug/app-debug.apk
+    - *.apk
   type: zip
   discard-paths: yes
   override-packing: true
