@@ -27,8 +27,8 @@ android {
         applicationId 'com.palahsu.ttt'
         minSdkVersion 19
         targetSdkVersion 30  
-        // versionCode appVersionCode.toInteger()
-        // versionName appVersionName
+        versionCode versionCode.toInteger()
+        versionName versionName
 
         testInstrumentationRunner 'androidx.test.runner.AndroidJUnitRunner'
     }
