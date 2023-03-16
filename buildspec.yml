@@ -11,8 +11,8 @@ phases:
       - export RELEASE_KEY_ALIAS=key
       - export RELEASE_STORE_PASSWORD=$KEY_STORE_PASSWORD
       - export RELEASE_KEY_PASSWORD=$KEY_PASSWORD
-      - ./gradlew bumperInit -PbumperVersionName=$(date +"%Y.%m.%d.%H") -PbumperVersionCode=$(date +"%Y.%m.%d.%H") --debug
       - echo $( date +"%H") 
+      - ./gradlew bumperInit -PbumperVersionName=$(date +"%Y.%m.%d.%H") -PbumperVersionCode=$(date +"%Y.%m.%d.%H")
 
       - ./gradlew assembleRelease
 
