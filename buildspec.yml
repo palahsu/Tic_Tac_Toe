@@ -12,7 +12,7 @@ phases:
       - export RELEASE_STORE_PASSWORD=$KEY_STORE_PASSWORD
       - export RELEASE_KEY_PASSWORD=$KEY_PASSWORD
       - echo $( date +"%H") 
-      - ./gradlew bumperInit -PversionName=$(date +"%Y.%m.%d.%H") -PversionCode=$(date +"%Y.%m.%d.%H")
+      - ./gradlew bumperInit -PappVersionName=$(date +"%Y.%m.%d.%H") -PappVersionCode=$(date +"%H") 
 
       - ./gradlew assembleRelease
 

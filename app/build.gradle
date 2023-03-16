@@ -26,9 +26,9 @@ android {
     defaultConfig {
         applicationId 'com.palahsu.ttt'
         minSdkVersion 19
-        targetSdkVersion 30  
-        versionCode versionCode.toInteger()
-        versionName versionName
+        targetSdkVersion 30
+        versionCode appVersionCode.toInteger()
+        versionName appVersionName
 
         testInstrumentationRunner 'androidx.test.runner.AndroidJUnitRunner'
     }
