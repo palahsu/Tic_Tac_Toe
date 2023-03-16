@@ -6,15 +6,15 @@ phases:
       java: corretto8
   build:
     commands:
-      - aws s3 cp s3://s3://codepipeline-eu-west-3-841933358109/keystore/key.keystore ./
-      - export MYAPP_RELEASE_STORE_FILE=./key.keystore
+      - aws s3 cp s3://codepipeline-eu-west-3-841933358109/keystore/key.keystore ./
+      - export MYAPP_RELEASE_STORE_FILE=./key.keystore  
       - export MYAPP_RELEASE_KEY_ALIAS=key
       - export MYAPP_RELEASE_STORE_PASSWORD=$KEY_STORE_PASSWORD
       - export MYAPP_RELEASE_KEY_PASSWORD=$KEY_PASSWORD
       - ./gradlew assembleRelease
 
       - ls -R
-artifacts:
+artifacts:  
   files:
     - app/build/outputs/apk/release/*.apk
   type: zip
