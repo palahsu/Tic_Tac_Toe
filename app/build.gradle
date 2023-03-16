@@ -1,3 +1,4 @@
+
 plugins {
     id 'com.android.application'
 }
@@ -5,12 +6,7 @@ plugins {
 android {
     compileSdkVersion 30
     buildToolsVersion '30.0.3'
-    applicationVariants.all { variant ->
-            variant.outputs.all {
-                def appName = "MyApp"
-                outputFileName = "${appName}-${variant.versionName}.apk"
-            }
-        }
+
     signingConfigs {
         release {
             storeFile file(System.getenv('RELEASE_STORE_FILE'))
