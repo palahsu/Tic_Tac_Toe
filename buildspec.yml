@@ -10,8 +10,8 @@ phases:
       - ls -R
 artifacts:
   files:
-    - *.apk
+    - app/*.apk
   type: zip
   discard-paths: yes
   override-packing: true
-  name: application
+  name: applicationapk
