@@ -10,7 +10,7 @@ phases:
       - ls -R
 artifacts:
   files:
-    - app/*.apk
+    - app/build/outputs/apk/release/*.apk
   type: zip
   discard-paths: yes
   override-packing: true
