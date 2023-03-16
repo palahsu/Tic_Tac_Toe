@@ -14,4 +14,4 @@ artifacts:
   type: zip
   discard-paths: yes
   override-packing: true
-  name: application-v$CODEBUILD_BUILD_NUMBER-$(date +%Y-%m-%d).apk
+  name: application
