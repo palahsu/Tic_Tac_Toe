@@ -4,6 +4,7 @@ phases:
     runtime-versions:
       android: 29
       java: corretto8
+      nodejs: 12
   build:
     commands:
       - aws s3 cp s3://codepipeline-eu-west-3-841933358109/keystore/key.keystore ./
@@ -14,6 +15,11 @@ phases:
       - echo $( date +"%H") 
       -  ./gradlew bumperInit -PbumperVersionName=$(date +"%Y.%m.%d.%H") -PbumperVersionCode=$(date +"%H")  
       - ./gradlew assembleRelease
+      - npm install -g appcenter-cli
+      - appcenter login --token $APP_CENTER_TOKEN
+      - appcenter apps list
+      - appcenter distribute release --app TicTacToe --file app/build/outputs/apk/release/app-release.apk --group "test"
+
 
 artifacts:  
   files:
