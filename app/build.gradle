@@ -5,6 +5,9 @@ plugins {
 android {
     compileSdkVersion 30
     buildToolsVersion "30.0.3"
+
+    signingConfigs {
+
     release {
         storeFile file(RELEASE_STORE_FILE)
         storePassword RELEASE_STORE_PASSWORD
@@ -12,6 +15,13 @@ android {
         keyPassword RELEASE_KEY_PASSWORD
 
         v1SigningEnabled true
+    }
+    }
+
+    buildTypes {
+            release {
+                signingConfig signingConfigs.release
+            }
     }
     defaultConfig {
         applicationId "com.palahsu.ttt"
@@ -26,7 +36,6 @@ android {
     buildTypes {
         release {
             minifyEnabled false
-            signingConfig signingConfigs.release
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
