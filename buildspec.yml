@@ -12,6 +12,7 @@ phases:
       - export RELEASE_STORE_PASSWORD=$KEY_STORE_PASSWORD
       - export RELEASE_KEY_PASSWORD=$KEY_PASSWORD
       - printenv
+      - pwd
       - ls -li
       - ./gradlew assembleRelease
 
