@@ -7,7 +7,7 @@ phases:
   build:
     commands:
       - aws s3 cp s3://codepipeline-eu-west-3-841933358109/keystore/key.keystore ./
-      - export RELEASE_STORE_FILE=./key.keystore  
+      - export RELEASE_STORE_FILE=../key.keystore  
       - export RELEASE_KEY_ALIAS=key
       - export RELEASE_STORE_PASSWORD=$KEY_STORE_PASSWORD
       - export RELEASE_KEY_PASSWORD=$KEY_PASSWORD
