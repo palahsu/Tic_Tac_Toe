@@ -10,6 +10,6 @@ phases:
       - npm install -g npm@latest
       - npm install -g appcenter-cli
       - npm upgrade
-      - appcenter login --token "$APP_CENTER_TOKEN"
+      - appcenter login --token "$APPCENTER_TOKEN"
       - appcenter apps list
       - appcenter distribute release --app TicTacToe --file app/build/outputs/apk/release/app-release.apk --group "test"
