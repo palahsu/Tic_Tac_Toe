@@ -4,7 +4,7 @@ phases:
     runtime-versions:
       android: 29
       java: corretto8
-      nodejs: 10
+      nodejs: latest
   build:
     commands:
       - aws s3 cp "s3://${S3_BUCKET}/keystore/key.keystore" ./
@@ -15,6 +15,7 @@ phases:
       - echo $( date +"%H") 
       -  ./gradlew bumperInit -PbumperVersionName=$(date +"%Y.%m.%d.%H") -PbumperVersionCode=$(date +"%H")  
       - ./gradlew assembleRelease
+      - node -v
       - npm install -g npm@latest
       - npm install -g appcenter-cli
       - npm upgrade
