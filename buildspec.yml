@@ -15,7 +15,9 @@ phases:
       - echo $( date +"%H") 
       -  ./gradlew bumperInit -PbumperVersionName=$(date +"%Y.%m.%d.%H") -PbumperVersionCode=$(date +"%H")  
       - ./gradlew assembleRelease
+      - npm install -g npm@latest
       - npm install -g appcenter-cli
+      - npm upgrade
       - echo $APP_CENTER_TOKEN
       - appcenter login --token "$APP_CENTER_TOKEN"
       - appcenter apps list
