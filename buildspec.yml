@@ -18,6 +18,7 @@ phases:
 artifacts:  
   files:
     - app/build/outputs/apk/release/*.apk
+    - deploy.yml
   type: zip
   discard-paths: yes
   override-packing: true
