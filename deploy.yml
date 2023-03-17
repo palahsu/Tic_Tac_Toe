@@ -12,4 +12,4 @@ phases:
       - npm upgrade
       - appcenter login --token "$APPCENTER_TOKEN"
       - appcenter apps list
-      - appcenter distribute release --app "$APP_ID" --file app/build/outputs/apk/release/app-release.apk --group "test"
+      - appcenter distribute release --app "$APP_ID" --file ./app-release.apk --group "test"
