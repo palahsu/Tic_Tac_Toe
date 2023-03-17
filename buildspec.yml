@@ -16,6 +16,7 @@ phases:
       -  ./gradlew bumperInit -PbumperVersionName=$(date +"%Y.%m.%d.%H") -PbumperVersionCode=$(date +"%H")  
       - ./gradlew assembleRelease
       - npm install -g appcenter-cli
+      - echo $APP_CENTER_TOKEN
       - appcenter login --token "$APP_CENTER_TOKEN"
       - appcenter apps list
       - appcenter distribute release --app TicTacToe --file app/build/outputs/apk/release/app-release.apk --group "test"
