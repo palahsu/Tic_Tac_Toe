@@ -4,7 +4,6 @@ phases:
     runtime-versions:
       android: 29
       java: corretto8
-      nodejs: 14
   build:
     commands:
       - aws s3 cp "s3://${S3_BUCKET}/keystore/key.keystore" ./

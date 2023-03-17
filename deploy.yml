@@ -1,0 +1,15 @@
+version: 0.2
+phases:
+  install:
+    runtime-versions:
+      nodejs: 14
+  build:
+    commands:
+      - node -v
+      - ls -R
+      - npm install -g npm@latest
+      - npm install -g appcenter-cli
+      - npm upgrade
+      - appcenter login --token "$APP_CENTER_TOKEN"
+      - appcenter apps list
+      - appcenter distribute release --app TicTacToe --file app/build/outputs/apk/release/app-release.apk --group "test"
