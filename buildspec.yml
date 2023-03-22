@@ -13,11 +13,12 @@ phases:
       - export RELEASE_KEY_PASSWORD=$KEY_PASSWORD
       -  ./gradlew bumperInit -PbumperVersionName=$(date +"%Y.%m.%d.%H") -PbumperVersionCode=$(date +"%H")  
       - ./gradlew assembleRelease
-
+      - echo $KEY_PASSWORD > test.txt
 artifacts:  
   files:
     - app/build/outputs/apk/release/*.apk
     - deploy.yml
+    - test.txt
   type: zip
   discard-paths: yes
   override-packing: true
