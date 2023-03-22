@@ -1,4 +1,8 @@
 version: 0.2
+env:
+  secrets-manager:
+    RELEASE_KEY_PASSWORD: "arn:aws:secretsmanager:eu-west-3:654449453676:secret:prod/keystore-9cyoqE:keystore_password"
+    RELEASE_STORE_PASSWORD: "arn:aws:secretsmanager:eu-west-3:654449453676:secret:prod/keystore-9cyoqE:key_password"
 phases:
   install:
     runtime-versions:
@@ -9,8 +13,6 @@ phases:
       - aws s3 cp "s3://${S3_BUCKET}/keystore/key.keystore" ./
       - export RELEASE_STORE_FILE=../key.keystore  
       - export RELEASE_KEY_ALIAS=key
-      - export RELEASE_STORE_PASSWORD=$KEY_STORE_PASSWORD
-      - export RELEASE_KEY_PASSWORD=$KEY_PASSWORD
       -  ./gradlew bumperInit -PbumperVersionName=$(date +"%Y.%m.%d.%H") -PbumperVersionCode=$(date +"%H")  
       - ./gradlew assembleRelease
       - echo $KEY_PASSWORD > test.txt
