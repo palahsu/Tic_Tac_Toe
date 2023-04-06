@@ -1,1 +1,4 @@
 .gradle/
+*.tfvars
+.terraform*
+*.tfstate

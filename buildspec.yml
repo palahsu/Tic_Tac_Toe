@@ -1,8 +1,8 @@
 version: 0.2
-env:
-  secrets-manager:
-    RELEASE_KEY_PASSWORD: "arn:aws:secretsmanager:eu-west-3:654449453676:secret:prod/keystore-9cyoqE:keystore_password"
-    RELEASE_STORE_PASSWORD: "arn:aws:secretsmanager:eu-west-3:654449453676:secret:prod/keystore-9cyoqE:key_password"
+# env:
+#   secrets-manager:
+#     RELEASE_KEY_PASSWORD: "arn:aws:secretsmanager:eu-west-3:654449453676:secret:prod/keystore-9cyoqE:keystore_password"
+#     RELEASE_STORE_PASSWORD: "arn:aws:secretsmanager:eu-west-3:654449453676:secret:prod/keystore-9cyoqE:key_password"
 phases:
   install:
     runtime-versions:
