@@ -1,4 +1,5 @@
 .gradle/
 *.tfvars
-.terraform*
-terraform.*
+*terraform*
+*.tfstate
+*.tfstate.*
