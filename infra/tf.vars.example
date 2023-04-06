@@ -1,0 +1,7 @@
+region=eu-west-3
+github_token="token"
+account_id=id
+kms_key_id=id
+github_repo_url=url
+github_owner=githubOwner
+github_token=oath_token
