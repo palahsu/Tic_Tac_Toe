@@ -10,6 +10,7 @@ phases:
       java: corretto8
   build:
     commands:
+      - echo $S3_BUCKET
       - aws s3 cp "s3://${S3_BUCKET}/keystore/key.keystore" ./
       - export RELEASE_STORE_FILE=../key.keystore  
       - export RELEASE_KEY_ALIAS=key
