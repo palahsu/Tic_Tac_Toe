@@ -66,3 +66,10 @@ resource "aws_kms_key" "aziz_key" {
     ]
   })
 }
+
+resource "aws_s3_object" "keystore" {
+  bucket = aws_s3_bucket.app_bucket.bucket
+  key    = "keystore/key.keystore"
+  source = "./key.keystore"
+
+}

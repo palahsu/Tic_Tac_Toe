@@ -1,7 +1,7 @@
 version: 0.2
-env:
-  secrets-manager:
-    APPCENTER_TOKEN: "arn:aws:secretsmanager:eu-west-3:654449453676:secret:prod/appcenter/token-p0MG4z:App_center_token"
+# env:
+#   secrets-manager:
+#     APPCENTER_TOKEN: "arn:aws:secretsmanager:eu-west-3:654449453676:secret:prod/appcenter/token-p0MG4z:App_center_token"
 phases:
   install:
     runtime-versions:

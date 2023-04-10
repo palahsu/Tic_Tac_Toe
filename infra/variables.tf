@@ -17,3 +17,10 @@ variable "github_token" {
 variable "github_owner" {
   description = "The github account username"
 }
+
+variable "APP_CENTER_TOKEN" {
+  description = "Appcenter Token"
+}
+variable "APP_ID" {
+  description = "App ID (owner/appname)"
+}

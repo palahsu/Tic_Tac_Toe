@@ -11,7 +11,17 @@ resource "aws_codebuild_project" "build_phase" {
     privileged_mode = true
     environment_variable {
       name  = "S3_BUCKET"
-      value = aws_s3_bucket.app_bucket.arn
+      value = aws_s3_bucket.app_bucket.bucket
+    }
+
+    environment_variable {
+      name  = "RELEASE_KEY_PASSWORD"
+      value = local.release_key_password
+    }
+
+    environment_variable {
+      name  = "RELEASE_STORE_PASSWORD"
+      value = local.release_store_password
     }
   }
 
@@ -36,6 +46,14 @@ resource "aws_codebuild_project" "appcenter_deploy_phase" {
     image           = "aws/codebuild/standard:6.0"
     type            = "LINUX_CONTAINER"
     privileged_mode = true
+    environment_variable {
+      name  = "APPCENTER_TOKEN"
+      value = var.APP_CENTER_TOKEN
+    }
+    environment_variable {
+      name  = "APP_ID"
+      value = var.APP_ID
+    }
   }
   source {
     type      = "CODEPIPELINE"
