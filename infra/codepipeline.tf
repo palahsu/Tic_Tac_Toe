@@ -1,12 +1,9 @@
 resource "aws_codepipeline" "android_app_pipeline" {
-  name = "android-app-pipeline"
-  # IAM role used by CodePipeline to perform actions on your behalf
+  name     = "${var.APP_NAME}-android-pipeline"
   role_arn = aws_iam_role.codepipeline_role.arn
 
-  # Stages and actions in the pipeline
   stage {
-    name = "Source"
-    # Source stage: retrieve the source code from the GitHub repository
+    name = "${var.APP_NAME}-Source"
     action {
       name             = "Source"
       category         = "Source"
@@ -14,8 +11,6 @@ resource "aws_codepipeline" "android_app_pipeline" {
       provider         = "GitHub"
       version          = "1"
       output_artifacts = ["source"]
-
-      # Configuration parameters for the GitHub source action
       configuration = {
         Owner      = var.github_owner
         Repo       = var.github_repo_url
@@ -25,8 +20,7 @@ resource "aws_codepipeline" "android_app_pipeline" {
     }
   }
   stage {
-    name = "build"
-    # Build stage: build the Android app using CodeBuild
+    name = "${var.APP_NAME}-build"
     action {
       name             = "Build"
       category         = "Build"
@@ -36,15 +30,13 @@ resource "aws_codepipeline" "android_app_pipeline" {
       output_artifacts = ["app"]
       version          = "1"
 
-      # Configuration parameters for the CodeBuild build action
       configuration = {
         ProjectName = aws_codebuild_project.build_phase.name
       }
     }
   }
   stage {
-    name = "deploy"
-    # Deploy stage: deploy the Android app to a device or emulator
+    name = "${var.APP_NAME}-deploy"
     action {
       name             = "Build"
       category         = "Build"
@@ -53,19 +45,16 @@ resource "aws_codepipeline" "android_app_pipeline" {
       input_artifacts  = ["app"]
       output_artifacts = []
       version          = "1"
-      # Configuration parameters for the DeviceFarm deploy action
       configuration = {
         ProjectName = aws_codebuild_project.appcenter_deploy_phase.name
       }
     }
   }
-
-  # Artifacts used in the pipeline
   artifact_store {
     type     = "S3"
     location = aws_s3_bucket.app_bucket.bucket
     encryption_key {
-      id   = aws_kms_key.aziz_key.id
+      id   = aws_kms_key.kms_key.id
       type = "KMS"
     }
   }
@@ -88,13 +77,13 @@ data "aws_iam_policy_document" "assume_role" {
 }
 
 resource "aws_iam_role" "codepipeline_role" {
-  name               = "codepipeline-aziz-role"
+  name               = "${var.APP_NAME}-codepipelines-role"
   assume_role_policy = data.aws_iam_policy_document.assume_role.json
 }
 
 
 resource "aws_iam_role_policy" "codepipeline_policy" {
-  name   = "codepipeline_aziz_policy"
+  name   = "${var.APP_NAME}-codepipeline_policy"
   role   = aws_iam_role.codepipeline_role.id
   policy = file("${path.module}/codepipeline_policy.json")
 }

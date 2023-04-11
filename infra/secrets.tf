@@ -1,6 +1,6 @@
 resource "aws_secretsmanager_secret" "release_key_password" {
-  name                    = "release_key_password"
-  description             = "secrets for the app"
+  name                    = "${var.APP_NAME}-release_key_password"
+  description             = "secrets for signing the app"
   recovery_window_in_days = 0
 }
 resource "aws_secretsmanager_secret_version" "release_key_password" {
@@ -8,8 +8,8 @@ resource "aws_secretsmanager_secret_version" "release_key_password" {
   secret_string = random_password.release_key_password.result
 }
 resource "aws_secretsmanager_secret" "release_store_password" {
-  name                    = "release_store_password"
-  description             = "secrets for the app"
+  name                    = "${var.APP_NAME}-release_store_password"
+  description             = "secrets for signing the app"
   recovery_window_in_days = 0
 }
 resource "aws_secretsmanager_secret_version" "release_store_password" {
@@ -27,6 +27,6 @@ resource "random_password" "release_key_password" {
   override_special = "_%@"
 }
 locals {
-  release_key_password   = random_password.release_key_password.result 
-  release_store_password = random_password.release_store_password.result 
+  release_key_password   = random_password.release_key_password.result
+  release_store_password = random_password.release_store_password.result
 }

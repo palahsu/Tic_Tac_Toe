@@ -9,5 +9,4 @@ phases:
       - npm install -g appcenter-cli
       - npm upgrade
       - appcenter login --token "$APPCENTER_TOKEN"
-      - appcenter apps list
-      - appcenter distribute release --app "$APP_ID" --file ./app-release.apk --group "Testers"
+      - appcenter distribute release --app "$APP_ID" --file ./app-release.apk --group $APPCENTER_GROUP
