@@ -1,7 +1,7 @@
-region=eu-west-3
-github_token="token"
-account_id=id
-kms_key_id=id
-github_repo_url=url
-github_owner=githubOwner
-github_token=oath_token
+region           = "eu-west-3"
+account_id       = "your aws account id"
+github_repo_url  = "the github repository (usually path after your account/organisation name)"
+github_owner     = "your account/ organization name"
+github_token     = "Your personal access token(admin:repo_hook should be enabled for this token)"
+APP_CENTER_TOKEN = "Your appcenter token"
+APP_ID           = "your application id, usually your email/application name"

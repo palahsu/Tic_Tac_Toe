@@ -38,8 +38,8 @@ resource "aws_iam_policy" "codebuild_policy" {
         "Sid" : "SecretsManagerAccess",
         "Effect" : "Allow",
         "Resource" : [
-          "arn:aws:secretsmanager:${var.region}:${data.aws_caller_identity.current.account_id}:secret:${local.release_key_password}",
-          "arn:aws:secretsmanager:${var.region}:${data.aws_caller_identity.current.account_id}:secret:${local.release_store_password}"
+          "arn:aws:secretsmanager:${var.region}:${data.aws_caller_identity.current.account_id}:secret:${aws_secretsmanager_secret_version.release_key_password.secret_string}",
+          "arn:aws:secretsmanager:${var.region}:${data.aws_caller_identity.current.account_id}:secret:${aws_secretsmanager_secret_version.release_store_password.secret_string}"
         ]
         "Action" : [
           "secretsmanager:GetSecretValue"

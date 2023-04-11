@@ -16,12 +16,12 @@ resource "aws_codebuild_project" "build_phase" {
 
     environment_variable {
       name  = "RELEASE_KEY_PASSWORD"
-      value = local.release_key_password
+      value = aws_secretsmanager_secret_version.release_key_password.secret_string
     }
 
     environment_variable {
       name  = "RELEASE_STORE_PASSWORD"
-      value = local.release_store_password
+      value = aws_secretsmanager_secret_version.release_store_password.secret_string
     }
   }
 
