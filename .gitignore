@@ -1,0 +1,6 @@
+.gradle/
+*.tfvars
+*terraform*
+*.tfstate
+*.tfstate.*
+key.keystore

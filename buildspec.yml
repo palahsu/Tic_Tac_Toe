@@ -1,0 +1,19 @@
+version: 0.2
+phases:
+  install:
+    runtime-versions:
+      android: 29
+      java: corretto8
+  build:
+    commands:
+      - aws s3 cp "s3://${S3_BUCKET}/keystore/key.keystore" ./
+      -  ./gradlew bumperInit -PbumperVersionName=$(date +"%Y.%m.%d.%H") -PbumperVersionCode=$(date +"%H")  
+      - ./gradlew assembleRelease
+artifacts:  
+  files:
+    - app/build/outputs/apk/release/*.apk
+    - deploy.yml
+  type: zip
+  discard-paths: yes
+  override-packing: true
+  name: applicationapk

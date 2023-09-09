@@ -1,19 +1,36 @@
+
 plugins {
     id 'com.android.application'
 }
 
 android {
     compileSdkVersion 30
-    buildToolsVersion "30.0.3"
+    buildToolsVersion '30.0.3'
 
+    signingConfigs {
+        release {
+            storeFile file(System.getenv('RELEASE_STORE_FILE'))
+            storePassword System.getenv('RELEASE_STORE_PASSWORD')
+            keyAlias System.getenv('RELEASE_KEY_ALIAS')
+            keyPassword System.getenv('RELEASE_KEY_PASSWORD')
+
+            v1SigningEnabled true
+        }
+    }
+
+    buildTypes {
+            release {
+                signingConfig signingConfigs.release
+            }
+    }
     defaultConfig {
-        applicationId "com.palahsu.ttt"
+        applicationId 'com.palahsu.ttt'
         minSdkVersion 19
         targetSdkVersion 30
-        versionCode 1
-        versionName "1.0"
+        versionCode appVersionCode.toInteger()
+        versionName appVersionName
 
-        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        testInstrumentationRunner 'androidx.test.runner.AndroidJUnitRunner'
     }
 
     buildTypes {
@@ -29,7 +46,6 @@ android {
 }
 
 dependencies {
-
     implementation 'androidx.appcompat:appcompat:1.1.0'
     implementation 'com.google.android.material:material:1.1.0'
     implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
